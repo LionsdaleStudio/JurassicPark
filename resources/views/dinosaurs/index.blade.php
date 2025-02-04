@@ -1,0 +1,1 @@
+{{dd($dinosaurs[0]->environment->name)}}
