@@ -13,6 +13,10 @@ class Dinosaur extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'name', 'weight', 'length', 'height', 'color', 'diet_id', 'environment_id', 'type_id'
+    ];
+
     public function diet(): BelongsTo
     {
         return $this->BelongsTo(Diet::class);

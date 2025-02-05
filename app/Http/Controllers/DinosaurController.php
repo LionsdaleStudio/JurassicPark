@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Diet;
 use App\Models\Dinosaur;
 use App\Http\Requests\StoreDinosaurRequest;
 use App\Http\Requests\UpdateDinosaurRequest;
+use App\Models\Environment;
+use App\Models\Type;
 
 class DinosaurController extends Controller
 {
@@ -22,7 +25,10 @@ class DinosaurController extends Controller
      */
     public function create()
     {
-        //
+        $diets = Diet::all();
+        $environments = Environment::all();
+        $types = Type::all();
+        return view('dinosaurs.create', ['diets' => $diets, 'environments' => $environments, 'types' => $types]);
     }
 
     /**
@@ -30,7 +36,7 @@ class DinosaurController extends Controller
      */
     public function store(StoreDinosaurRequest $request)
     {
-        //
+        Dinosaur::create($request->all());
     }
 
     /**

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->double("height");
             $table->double("weight");
             $table->string("color");
+            $table->boolean("sex")->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

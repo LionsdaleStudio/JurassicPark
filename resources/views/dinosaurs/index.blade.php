@@ -9,6 +9,10 @@
         <div class="container flex justify-center mx-auto">
             <div class="flex flex-col">
                 <div class="w-full">
+                    <div class="mt-5 mb-5">
+                        <a href="{{ route('dinosaurs.create') }}"
+                            class="px-4 py-1 text-sm text-black bg-emerald-500 rounded-full hover:bg-emerald-600">Add new Dinosaur</a>
+                    </div>
                     <div class="border-b border-gray-200 shadow">
                         <table class="divide-y divide-gray-300 ">
                             <thead class="bg-gray-50">
@@ -83,11 +87,11 @@
                                         </td>
                                     </tr>
                                 @endforeach
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
