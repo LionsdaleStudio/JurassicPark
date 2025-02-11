@@ -37,6 +37,7 @@ class DinosaurController extends Controller
     public function store(StoreDinosaurRequest $request)
     {
         Dinosaur::create($request->all());
+        return 'Tárolva';
     }
 
     /**
@@ -52,7 +53,15 @@ class DinosaurController extends Controller
      */
     public function edit(Dinosaur $dinosaur)
     {
-        //
+        $diets = Diet::all();
+        $environments = Environment::all();
+        $types = Type::all();
+        return view('dinosaurs.edit', [
+            'dinosaur' => $dinosaur,
+            'diets' => $diets,
+            'environments' => $environments,
+            'types' => $types
+        ]);
     }
 
     /**
@@ -60,7 +69,8 @@ class DinosaurController extends Controller
      */
     public function update(UpdateDinosaurRequest $request, Dinosaur $dinosaur)
     {
-        //
+        $dinosaur->update($request->all());
+        return 'Frissítve';
     }
 
     /**
@@ -68,6 +78,7 @@ class DinosaurController extends Controller
      */
     public function destroy(Dinosaur $dinosaur)
     {
-        //
+        $dinosaur->delete();
+        return 'Törölve';
     }
 }

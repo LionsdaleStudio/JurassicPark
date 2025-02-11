@@ -21,6 +21,10 @@ return new class extends Migration
             $table->boolean("sex")->default(1);
             $table->timestamps();
             $table->softDeletes();
+            $table->foreignId('created_by')->default(0);
+            $table->foreignId('updated_by')->nullable();
+            $table->foreignId('deleted_by')->nullable();
+            /*ha tényleg rákötném a users táblára ez még kell ->constrained('users', 'id') */
         });
     }
 
